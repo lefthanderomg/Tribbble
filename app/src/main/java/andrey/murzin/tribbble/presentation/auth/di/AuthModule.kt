@@ -1,6 +1,6 @@
 package andrey.murzin.tribbble.presentation.auth.di
 
-import andrey.murzin.tribbble.FlowRouter
+import andrey.murzin.tribbble.model.router.FlowRouter
 import andrey.murzin.tribbble.presentation.auth.AuthViewModel
 import andrey.murzin.tribbble.presentation.auth.view.AuthFlowFragment
 import andrey.murzin.tribbble.presentation.base.navigation.BaseNavigator
@@ -15,7 +15,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 
 val authModule = module {
 
-    scope(named(AuthFlowFragment.SCOPED_NAME)) {
+    scope(named(AuthFlowFragment.SCOPE_NAME)) {
         scoped { (activity: AppCompatActivity, fragmentManager: FragmentManager, containerId: Int) ->
             BaseNavigator(
                 activity,
@@ -23,13 +23,17 @@ val authModule = module {
                 containerId
             )
         }
-        scoped<Cicerone<FlowRouter>> { Cicerone.create(FlowRouter(get())) }
+        scoped<Cicerone<FlowRouter>> { Cicerone.create(
+            FlowRouter(
+                get()
+            )
+        ) }
         scoped<FlowRouter> { get<Cicerone<FlowRouter>>().router }
         scoped<NavigatorHolder> { get<Cicerone<FlowRouter>>().navigatorHolder }
     }
 
     viewModel {
-        AuthViewModel(getScope(AuthFlowFragment.SCOPED_NAME).get())
+        AuthViewModel(getScope(AuthFlowFragment.SCOPE_NAME).get())
     }
 
 }

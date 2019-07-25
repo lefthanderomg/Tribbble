@@ -1,4 +1,4 @@
-package andrey.murzin.tribbble
+package andrey.murzin.tribbble.model.router
 
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.support.SupportAppScreen

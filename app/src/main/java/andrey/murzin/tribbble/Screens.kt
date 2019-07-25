@@ -15,4 +15,5 @@ object Screens {
     object MainFlow : SupportAppScreen() {
         override fun getFragment(): Fragment = MainFlowFragment()
     }
+
 }

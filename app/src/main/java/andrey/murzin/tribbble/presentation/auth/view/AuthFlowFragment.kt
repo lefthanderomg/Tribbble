@@ -18,7 +18,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 class AuthFlowFragment : FlowFragment() {
 
     companion object {
-        const val SCOPED_NAME = "authScope"
+        const val SCOPE_NAME = "authScope"
     }
 
     override val navigatorHolder: NavigatorHolder = getScope().get()
@@ -29,7 +29,7 @@ class AuthFlowFragment : FlowFragment() {
         parametersOf(this.activity, childFragmentManager, 0)
     }
 
-    override fun getScope()= getKoin().getOrCreateScope(SCOPED_NAME, named(SCOPED_NAME))
+    override fun getScope()= getKoin().getOrCreateScope(SCOPE_NAME, named(SCOPE_NAME))
 
     private val authViewModel: AuthViewModel by viewModel()
 

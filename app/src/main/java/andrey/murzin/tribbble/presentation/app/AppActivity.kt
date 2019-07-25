@@ -45,7 +45,6 @@ class AppActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         currentFragment?.onBackPressed() ?: super.onBackPressed()
     }
 

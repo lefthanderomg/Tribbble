@@ -1,6 +1,6 @@
 package andrey.murzin.tribbble.presentation.main.di
 
-import andrey.murzin.tribbble.FlowRouter
+import andrey.murzin.tribbble.model.router.FlowRouter
 import andrey.murzin.tribbble.presentation.base.navigation.BaseNavigator
 import andrey.murzin.tribbble.presentation.main.MainViewModel
 import andrey.murzin.tribbble.presentation.main.view.MainFlowFragment
@@ -22,11 +22,17 @@ val mainModule = module {
                 containerId
             )
         }
-        scoped<Cicerone<FlowRouter>> { Cicerone.create(FlowRouter(get())) }
+        scoped<Cicerone<FlowRouter>> {
+            Cicerone.create(
+                FlowRouter(
+                    get()
+                )
+            )
+        }
         scoped<FlowRouter> { get<Cicerone<FlowRouter>>().router }
         scoped<NavigatorHolder> { get<Cicerone<FlowRouter>>().navigatorHolder }
 
     }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(getScope(MainFlowFragment.SCOPE_NAME).get()) }
 }
