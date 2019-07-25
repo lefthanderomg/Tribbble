@@ -2,6 +2,7 @@ package andrey.murzin.pet.di
 
 import andrey.murzin.pet.BuildConfig
 import andrey.murzin.pet.data.network.IMovieDbApi
+import andrey.murzin.pet.data.network.intersepter.AppInterceptor
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -34,6 +35,7 @@ val networkModule = module {
             .Builder()
             .connectTimeout(TIME_OUT_CONNECTION, TimeUnit.SECONDS)
             .addInterceptor(get<LoggingInterceptor>())
+            .addInterceptor(AppInterceptor())
             .build()
     }
     single<GsonConverterFactory> {
