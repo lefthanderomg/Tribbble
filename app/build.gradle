@@ -25,6 +25,7 @@ android {
 
     buildTypes.each {
         it.buildConfigField 'String', 'TheMovieDbApiKey', TheMovieDbApiKey
+        it.buildConfigField 'String', 'BASE_URL', BASE_URL
     }
 }
 
@@ -37,6 +38,11 @@ ext.espressoVersion = '3.2.0'
 ext.ciceroneVersion = '5.0.0'
 ext.koinVersion = '2.0.1'
 ext.lifecycleVersion = '2.0.0'
+ext.rxJavaVersion = '2.2.10'
+ext.rxAndroidVersion = '2.1.1'
+ext.rxKotlinVersion= '2.3.0'
+ext.retrofitVersion = '2.5.0'
+ext.loggingInterceptorVersion = '3.0.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -61,4 +67,15 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
+    //rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    // REST Api
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation("com.github.ihsanbal:LoggingInterceptor:$loggingInterceptorVersion") {
+        exclude group: 'org.json', module: 'json'
+    }
 }

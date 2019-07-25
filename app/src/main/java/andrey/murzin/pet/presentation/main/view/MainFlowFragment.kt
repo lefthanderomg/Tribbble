@@ -33,7 +33,7 @@ class MainFlowFragment : FlowFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.launchMovie()
     }
 
     override fun onDestroy() {
