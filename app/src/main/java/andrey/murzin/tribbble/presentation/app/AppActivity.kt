@@ -1,6 +1,7 @@
 package andrey.murzin.tribbble.presentation.app
 
 import andrey.murzin.tribbble.R
+import andrey.murzin.tribbble.presentation.base.BaseFragment
 import andrey.murzin.tribbble.presentation.base.navigation.BaseNavigator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,9 @@ class AppActivity : AppCompatActivity() {
         parametersOf(this, supportFragmentManager, R.id.container)
     }
 
+    private val currentFragment: BaseFragment?
+        get() = supportFragmentManager.findFragmentById(R.id.container) as? BaseFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app)
@@ -32,12 +36,17 @@ class AppActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        navigatorHolder.setNavigator(navigator)
+        navigatorHolder.removeNavigator()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         currentScope.close()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        currentFragment?.onBackPressed() ?: super.onBackPressed()
     }
 
 }

@@ -8,6 +8,6 @@ class AppLauncher constructor(
 ) {
 
     fun coldStart() {
-        router.newRootScreen(Screens.MainFlow)
+        router.newRootScreen(Screens.AuthFlow)
     }
 }
