@@ -9,8 +9,7 @@ val movieModule = module {
 
     viewModel {
        MovieViewModel(
-           getScope(MainFlowFragment.SCOPE_NAME).get(),
-           get()
+           getScope(MainFlowFragment.SCOPE_NAME).get()
        )
     }
 }

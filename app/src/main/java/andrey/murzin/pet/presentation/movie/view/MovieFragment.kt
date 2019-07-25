@@ -5,7 +5,6 @@ import andrey.murzin.pet.presentation.base.BaseFragment
 import andrey.murzin.pet.presentation.movie.MovieViewModel
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.fragment_movie.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieFragment : BaseFragment() {
@@ -16,9 +15,6 @@ class MovieFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnTest.setOnClickListener {
-
-        }
     }
 
 }
