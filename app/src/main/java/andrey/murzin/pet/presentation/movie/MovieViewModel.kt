@@ -7,5 +7,9 @@ class MovieViewModel(
     private val flowRouter: FlowRouter
 ) : ViewModel() {
 
+    fun onBackPressed() {
+        flowRouter.exit()
+    }
+
 
 }

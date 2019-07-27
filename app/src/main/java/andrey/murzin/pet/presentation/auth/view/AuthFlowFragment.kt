@@ -38,12 +38,4 @@ class AuthFlowFragment : FlowFragment() {
             authViewModel.navigateMainFlow()
         }
     }
-
-    override fun onStop() {
-        super.onStop()
-        getScope().close()
-    }
-
-
-
 }

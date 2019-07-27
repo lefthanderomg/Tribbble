@@ -23,11 +23,13 @@ val authModule = module {
                 containerId
             )
         }
-        scoped<Cicerone<FlowRouter>> { Cicerone.create(
-            FlowRouter(
-                get()
+        scoped<Cicerone<FlowRouter>> {
+            Cicerone.create(
+                FlowRouter(
+                    get()
+                )
             )
-        ) }
+        }
         scoped<FlowRouter> { get<Cicerone<FlowRouter>>().router }
         scoped<NavigatorHolder> { get<Cicerone<FlowRouter>>().navigatorHolder }
     }
@@ -35,5 +37,4 @@ val authModule = module {
     viewModel {
         AuthViewModel(getScope(AuthFlowFragment.SCOPE_NAME).get())
     }
-
 }

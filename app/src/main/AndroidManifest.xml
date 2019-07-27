@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="andrey.murzin.pet.presentation.app.AppActivity"
-            android:configChanges="orientation"
             android:fitsSystemWindows="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

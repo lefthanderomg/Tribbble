@@ -78,4 +78,6 @@ dependencies {
     implementation("com.github.ihsanbal:LoggingInterceptor:$loggingInterceptorVersion") {
         exclude group: 'org.json', module: 'json'
     }
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
