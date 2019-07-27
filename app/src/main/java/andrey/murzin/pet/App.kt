@@ -11,15 +11,23 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initKoin()
+        initLogger()
+    }
+
+    private fun initLogger() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+    }
+
+    private fun initKoin() {
         startKoin {
             if (BuildConfig.DEBUG) {
                 androidLogger()
             }
             androidContext(this@App)
             modules(appModule)
-        }
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
         }
     }
 }
