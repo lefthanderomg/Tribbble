@@ -6,7 +6,6 @@ import andrey.murzin.pet.mapper.toViewModel
 import andrey.murzin.pet.model.router.FlowRouter
 import andrey.murzin.pet.presentation.base.BaseViewModel
 import andrey.murzin.pet.presentation.model.MovieViewEntity
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import timber.log.Timber
 
@@ -31,10 +30,8 @@ class MovieViewModel(
         ).subscribe({
             getObservableMovie.postValue(it)
         }, {
-           Timber.d(it)
-        }).also {
-            disposable.add(it)
-        }
+            Timber.d(it)
+        }).connect()
     }
 
     fun onBackPressed() {
