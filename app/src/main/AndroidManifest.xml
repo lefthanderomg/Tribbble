@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="andrey.murzin.pet.presentation.app.AppActivity"
+            android:name="andrey.murzin.pet.presentation.feature.app.AppActivity"
             android:fitsSystemWindows="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

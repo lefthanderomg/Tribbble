@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -27,9 +29,14 @@ android {
         it.buildConfigField 'String', 'TheMovieDbApiKey', TheMovieDbApiKey
         it.buildConfigField 'String', 'BASE_URL', BASE_URL
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 ext.appcompatVersion = '1.0.2'
+ext.recyclerViewVersion = '1.0.0'
 ext.ktxVersion = '1.0.2'
 ext.constraintlayoutVersion = '1.1.3'
 ext.junitVersion = '4.12'
@@ -43,31 +50,35 @@ ext.rxAndroidVersion = '2.1.1'
 ext.rxKotlinVersion= '2.3.0'
 ext.retrofitVersion = '2.5.0'
 ext.loggingInterceptorVersion = '3.0.0'
+ext.glideVersion = '4.9.0'
+ext.glideCompilerVersion = '4.8.0'
+ext.timberVersion = '4.7.1'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //core
+    //Core
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
-    //test
+    //Test
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    //navigation
+    //Navigation
     implementation "ru.terrakok.cicerone:cicerone:$ciceroneVersion"
     //di
     implementation "org.koin:koin-core:$koinVersion"
     implementation "org.koin:koin-android:$koinVersion"
     implementation "org.koin:koin-android-scope:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
-    //lifecycle
+    //Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
-    //rx
+    //Rx
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
@@ -79,5 +90,8 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     //Timber
-    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideCompilerVersion"
 }

@@ -2,8 +2,6 @@ package andrey.murzin.pet.presentation.base
 
 import andrey.murzin.pet.R
 import andrey.murzin.pet.presentation.base.navigation.BaseNavigator
-import andrey.murzin.pet.presentation.main.view.MainFlowFragment
-import androidx.annotation.LayoutRes
 import org.koin.android.ext.android.inject
 import org.koin.core.scope.Scope
 import ru.terrakok.cicerone.NavigatorHolder

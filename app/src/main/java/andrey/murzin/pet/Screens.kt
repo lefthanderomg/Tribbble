@@ -1,8 +1,8 @@
 package andrey.murzin.pet
 
-import andrey.murzin.pet.presentation.auth.view.AuthFlowFragment
-import andrey.murzin.pet.presentation.main.view.MainFlowFragment
-import andrey.murzin.pet.presentation.movie.view.MovieFragment
+import andrey.murzin.pet.presentation.feature.auth.view.AuthFlowFragment
+import andrey.murzin.pet.presentation.feature.main.view.MainFlowFragment
+import andrey.murzin.pet.presentation.feature.movie.view.MovieFragment
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
